@@ -1,8 +1,8 @@
-# PrintLib SDK License Agreement
+# PrintBeam SDK License Agreement
 
 Copyright © 2026 Koti Madduluri. All rights reserved.
 
-This agreement covers the PrintLib SDK as distributed from this repository: the compiled
+This agreement covers the PrintBeam SDK as distributed from this repository: the compiled
 libraries (Maven artifacts, XCFramework), the Swift Package manifest, and the accompanying
 documentation (together, the "SDK").
 
