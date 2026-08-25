@@ -1,0 +1,1 @@
+sourceset_dependencies='{":printbeam/androidMain":[":printbeam/commonMain"],":printbeam/appleMain":[":printbeam/nativeMain"],":printbeam/commonMain":[],":printbeam/iosArm64Main":[":printbeam/iosMain"],":printbeam/iosMain":[":printbeam/appleMain"],":printbeam/iosSimulatorArm64Main":[":printbeam/iosMain"],":printbeam/nativeMain":[":printbeam/commonMain"]}'

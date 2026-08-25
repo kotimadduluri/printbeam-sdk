@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PrintBeam</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    printbeam
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+0.1.0-alpha01        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active=""
+                        data-filter=":printbeam/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":printbeam/commonMain"
+                                       data-filter=":printbeam/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    printbeam
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="printbeam::dev.printbeam.sdk/PrintBeam///PointingToDeclaration//-2116065771">
+  <div class="breadcrumbs"><a href="../../../index.html">printbeam</a><span class="delimiter">/</span><a href="../index.html">dev.printbeam.sdk</a><span class="delimiter">/</span><span class="current">PrintBeam</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Print</span><wbr></wbr><span><span>Beam</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="index.html">PrintBeam</a></div><p class="paragraph">Session-holding entry point over the PrintBeam engine — <code class="lang-kotlin">initialize / scan / connect / print / disconnect</code>. Where the lower-level <a href="../../dev.printbeam/-printer/index.html">dev.printbeam.Printer</a> opens and closes a connection per operation (a 1–3 s GATT handshake per receipt on BLE), <code class="lang-kotlin">PrintBeam</code> holds one <a href="../../dev.printbeam.connection/-printer-connection/index.html">PrinterConnection</a> per printer id across prints and reopens transparently when the link dies.</p><p class="paragraph">Printers are addressed by their stable string id (<a href="../../dev.printbeam.discovery/-discovered-printer/id.html">DiscoveredPrinter.id</a> — derived from the endpoint, e.g. <code class="lang-kotlin">&quot;net://192.168.1.100:9100&quot;</code> / <code class="lang-kotlin">&quot;ble://AA:BB:CC:DD:EE:FF&quot;</code>). The registry is populated by <a href="scan.html">scan</a> (every found printer is registered automatically), by <a href="add-manual-printer.html">addManualPrinter</a>, and by <a href="remember-printer.html">rememberPrinter</a>. The id alone cannot be parsed back into an endpoint, so persisting just the id is not enough to survive a relaunch: persist the printer's endpoint and fields (or the values passed to <a href="add-manual-printer.html">addManualPrinter</a>) and re-register on the next launch — both registration calls derive the same stable id every time.</p><p class="paragraph">Threading: suspend functions are main-safe — I/O runs on the SDK's internal dispatcher. Listener callbacks and callback-twin results are delivered on the main dispatcher. Concurrent prints to the same printer serialize; prints to different printers proceed in parallel.</p><p class="paragraph">Scan-vs-connect serialization is the facade's job: the iOS <code class="lang-kotlin">PrinterContext</code> owns one shared <code class="lang-kotlin">CBCentralManager</code> with a single delegate slot, so a BLE scan and a BLE connect must never run concurrently. Every connection-opening path (<a href="connect.html">connect</a>, the auto-connect and dead-link reopen inside <a href="print.html">print</a> and <a href="query-status.html">queryStatus</a>) therefore cancels any active scan before opening, and starting a new <a href="scan.html">scan</a> cancels the previous one.</p><p class="paragraph">Advanced integrations that need one-shot printing or custom transports use the L1 types (<a href="../../dev.printbeam/-printer/index.html">dev.printbeam.Printer</a>, <a href="../../dev.printbeam.discovery/-printer-discovery-service/index.html">PrinterDiscoveryService</a>) directly — this facade is built purely on their public seams and holds no privileged state. Status queries, however, should go through the facade's <a href="query-status.html">queryStatus</a>: it reuses the held session, where the L1 <a href="../../dev.printbeam/-printer/query-status.html">dev.printbeam.Printer.queryStatus</a> opens a second connection next to the one the facade already holds — on BLE a whole extra GATT handshake.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="537298560%2FFunctions%2F-2116065771" anchor-label="addManualPrinter" id="537298560%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-manual-printer.html"><span>add</span><wbr></wbr><span>Manual</span><wbr></wbr><span><span>Printer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="537298560%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-manual-printer.html"><span class="token function">addManualPrinter</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">endpoint<span class="token operator">: </span><a href="../../dev.printbeam/-printer-endpoint/index.html">PrinterEndpoint</a><span class="token punctuation">, </span></span><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">paperWidth<span class="token operator">: </span><a href="../../dev.printbeam/-paper-width/index.html">PaperWidth</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Register a printer the user configured by hand and return its stable id — the same endpoint-derived id a scan would assign (<a href="../../dev.printbeam.discovery/-discovered-printer/id.html">DiscoveredPrinter.id</a>), so an entry keeps working whether the printer was found by scanning or entered manually. Re-registering an endpoint replaces its entry (name and paper width included). The entry carries <a href="../../dev.printbeam.discovery/-discovered-printer/-source/-m-a-n-u-a-l/index.html">DiscoveredPrinter.Source.MANUAL</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-555315087%2FFunctions%2F-2116065771" anchor-label="connect" id="-555315087%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect.html"><span><span>connect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-555315087%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Open and hold a connection for <a href="connect.html">printerId</a>. No-op if a session is already held. Opening cancels any active scan first — the iOS shared <code class="lang-kotlin">CBCentralManager</code> has a single delegate slot, so scanning and connecting must not overlap; the facade owns that serialization so consumers never see the constraint.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="connect.html"><span class="token function">connect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">onResult<span class="token operator">: </span><span class="token punctuation">(</span><a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Callback twin of <a href="connect.html">connect</a>: runs in the facade scope, delivers <code class="lang-kotlin">null</code> on success or the <a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a> on failure, on the main dispatcher. Not invoked if <a href="shutdown.html">shutdown</a> tears the facade down first.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1267819429%2FFunctions%2F-2116065771" anchor-label="disconnect" id="-1267819429%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disconnect.html"><span><span>disconnect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1267819429%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="disconnect.html"><span class="token function">disconnect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Close and forget the held connection for <a href="disconnect.html">printerId</a>. No-op when nothing is connected (including unknown ids). State becomes <a href="../-printer-state/-disconnected/index.html">PrinterState.Disconnected</a>.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="disconnect.html"><span class="token function">disconnect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">onResult<span class="token operator">: </span><span class="token punctuation">(</span><a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Callback twin of <a href="disconnect.html">disconnect</a>: runs in the facade scope, delivers <code class="lang-kotlin">null</code> on success or the <a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a> on failure, on the main dispatcher.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-53799287%2FFunctions%2F-2116065771" anchor-label="initialize" id="-53799287%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="initialize.html"><span><span>initialize</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-53799287%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="initialize.html"><span class="token function">initialize</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="../-print-beam-config/index.html">PrintBeamConfig</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Install <a href="initialize.html">config</a> and make the facade operational. Must be called once before any other <code class="lang-kotlin">PrintBeam</code> API — uninitialized use throws <a href="../../dev.printbeam/-printer-exception/-not-initialized/index.html">PrinterException.NotInitialized</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-433250860%2FFunctions%2F-2116065771" anchor-label="knownPrinters" id="-433250860%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="known-printers.html"><span>known</span><wbr></wbr><span><span>Printers</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-433250860%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="known-printers.html"><span class="token function">knownPrinters</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../dev.printbeam.discovery/-discovered-printer/index.html">DiscoveredPrinter</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Snapshot of every registered printer — scan results, manual entries, and remembered printers — in registration order. Ids are stable across calls; entries found by scanning carry their merged discovery metadata.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="684622481%2FFunctions%2F-2116065771" anchor-label="print" id="684622481%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="print.html"><span><span>print</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="684622481%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="print.html"><span class="token function">print</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">block<span class="token operator">: </span><a href="../../dev.printbeam.escpos/-receipt-builder/index.html">ReceiptBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.printbeam/-print-result/index.html">PrintResult</a></div><div class="brief "><p class="paragraph">Build a receipt with <a href="print.html">block</a> and print it on <a href="print.html">printerId</a>'s held session, auto-connecting (scan cancelled first, state via <a href="../-printer-state/-connecting/index.html">PrinterState.Connecting</a>) when none is live. The paper width comes from the printer's registry entry, so line wrapping matches what <a href="scan.html">scan</a> or <a href="add-manual-printer.html">addManualPrinter</a> recorded.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="print.html"><span class="token function">print</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">block<span class="token operator">: </span><a href="../../dev.printbeam.escpos/-receipt-builder/index.html">ReceiptBuilder</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">, </span></span><span class="parameter ">onResult<span class="token operator">: </span><span class="token punctuation">(</span><a href="../../dev.printbeam/-print-result/index.html">PrintResult</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Callback twin of <a href="print.html">print</a>: runs in the facade scope, delivers the <a href="../../dev.printbeam/-print-result/index.html">PrintResult</a> on the main dispatcher. Builder validation errors, which the suspend variant throws, arrive here as <a href="../../dev.printbeam/-print-result/-failure/index.html">PrintResult.Failure</a> — an async callback has no throw channel.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="659865041%2FFunctions%2F-2116065771" anchor-label="printerState" id="659865041%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="printer-state.html"><span>printer</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="659865041%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="printer-state.html"><span class="token function">printerState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="../-printer-state/index.html">PrinterState</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Observe <a href="printer-state.html">printerId</a>'s session lifecycle. The returned flow is StateFlow-backed: it replays the latest state immediately on collection and then emits on every change — but it conflates, so a collector observes the latest state, not necessarily every intermediate transition (a fast <code class="lang-kotlin">Connecting</code> → <code class="lang-kotlin">Connected</code> flip may arrive as <code class="lang-kotlin">Connected</code> alone). Ids not (yet) registered read as <a href="../-printer-state/-disconnected/index.html">PrinterState.Disconnected</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1536528712%2FFunctions%2F-2116065771" anchor-label="queryStatus" id="-1536528712%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="query-status.html"><span>query</span><wbr></wbr><span><span>Status</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1536528712%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="query-status.html"><span class="token function">queryStatus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.printbeam.status/-printer-status/index.html">PrinterStatus</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Query real-time printer status (ESC/POS <code class="lang-kotlin">DLE EOT</code>) over <a href="query-status.html">printerId</a>'s held session, auto-connecting (scan cancelled first, state via <a href="../-printer-state/-connecting/index.html">PrinterState.Connecting</a>) when none is live — exactly like <a href="print.html">print</a>. Serializes with prints to the same printer, so a status query never interleaves bytes with a receipt.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="query-status.html"><span class="token function">queryStatus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">onResult<span class="token operator">: </span><span class="token punctuation">(</span><a href="../../dev.printbeam.status/-printer-status/index.html">PrinterStatus</a><span class="token operator">?</span><span class="token punctuation">, </span><a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Callback twin of <a href="query-status.html">queryStatus</a>: runs in the facade scope, delivers <code class="lang-kotlin">(status, null)</code> on success — a null status meaning the printer sent no reply — or <code class="lang-kotlin">(null, failure)</code> when the query failed, on the main dispatcher.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-821129153%2FFunctions%2F-2116065771" anchor-label="rememberPrinter" id="-821129153%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remember-printer.html"><span>remember</span><wbr></wbr><span><span>Printer</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-821129153%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remember-printer.html"><span class="token function">rememberPrinter</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printer<span class="token operator">: </span><a href="../../dev.printbeam.discovery/-discovered-printer/index.html">DiscoveredPrinter</a><span class="token punctuation">, </span></span><span class="parameter ">paperWidth<span class="token operator">: </span><a href="../../dev.printbeam/-paper-width/index.html">PaperWidth</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Register a printer object the consumer already holds — typically a scan result restored from persistence — and return its stable id. When the id is already registered the two observations merge field-by-field (the same source-priority merge discovery uses), so remembering a printer never erases richer metadata the registry already has; <a href="remember-printer.html">printer</a>'s fields win ties.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="89920126%2FFunctions%2F-2116065771" anchor-label="scan" id="89920126%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="scan.html"><span><span>scan</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="89920126%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="scan.html"><span class="token function">scan</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transports<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../../dev.printbeam/-transport/index.html">Transport</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">timeoutMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span>DEFAULT_SCAN_TIMEOUT_MS<span class="token punctuation">, </span></span><span class="parameter ">listener<span class="token operator">: </span><a href="../-scan-listener/index.html">ScanListener</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-scan-handle/index.html">ScanHandle</a></div><div class="brief "><p class="paragraph">Start a streaming discovery scan. Every found printer is delivered to <a href="../-scan-listener/on-printer-found.html">ScanListener.onPrinterFound</a> (re-emitted with merged fields when a later source enriches an earlier observation) and simultaneously registered, so <a href="connect.html">connect</a> / <a href="print.html">print</a> accept its id immediately — including mid-scan. Per-source failures arrive via <a href="../-scan-listener/on-transport-failed.html">ScanListener.onTransportFailed</a> without stopping the other transports; <a href="../-scan-listener/on-finished.html">ScanListener.onFinished</a> delivers the final deduplicated snapshot. All callbacks are dispatched on the main dispatcher; a callback that throws is logged via <a href="../-print-beam-config/logger.html">PrintBeamConfig.logger</a> and does not stop the scan.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="403391412%2FFunctions%2F-2116065771" anchor-label="shutdown" id="403391412%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="shutdown.html"><span><span>shutdown</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="403391412%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="shutdown.html"><span class="token function">shutdown</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Tear the facade down: cancel any active scan and pending callback twins, close every held connection (best-effort, in the background), reset all observed states to <a href="../-printer-state/-disconnected/index.html">PrinterState.Disconnected</a>, and return to the uninitialized state so <a href="initialize.html">initialize</a> may be called again. Idempotent — calling on an uninitialized facade is a no-op.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2026 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

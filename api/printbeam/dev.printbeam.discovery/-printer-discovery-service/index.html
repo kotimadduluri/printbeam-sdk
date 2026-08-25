@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>PrinterDiscoveryService</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+            <a class="library-name--link" href="../../../index.html">
+                    printbeam
+            </a>
+        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle"
+                type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+0.1.0-alpha01        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector common-like" data-active=""
+                        data-filter=":printbeam/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox"
+                        data-role="dropdown-toggle"
+                        aria-controls="platform-tags-listbox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Toggle source sets"
+                ></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":printbeam/commonMain"
+                                       data-filter=":printbeam/commonMain"/>
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button"
+                    type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list"
+                        data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    printbeam
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="printbeam::dev.printbeam.discovery/PrinterDiscoveryService///PointingToDeclaration//-2116065771">
+  <div class="breadcrumbs"><a href="../../../index.html">printbeam</a><span class="delimiter">/</span><a href="../index.html">dev.printbeam.discovery</a><span class="delimiter">/</span><span class="current">PrinterDiscoveryService</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Printer</span><wbr></wbr><span>Discovery</span><wbr></wbr><span><span>Service</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">PrinterDiscoveryService</a> : <a href="../-printer-discovery/index.html">PrinterDiscovery</a></div><p class="paragraph">Multi-transport printer discovery. Pass a <code class="lang-kotlin">Set&lt;Transport&gt;</code> to <a href="discover.html">discover</a> to scope the scan to a subset of media; the default <code class="lang-kotlin">Transport.entries.toSet()</code> scans everything the platform supports.</p><p class="paragraph">Construction is platform-specific because Android needs a <code class="lang-kotlin">Context</code>:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">// Android<br>val discovery = PrinterDiscoveryService(PrinterContext(applicationContext))<br><br>// iOS<br>let discovery = PrinterDiscoveryService(context: PrinterContext())</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">The returned <span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span> is cold: starting collection begins the scan; cancelling stops it. Found-printer events are de-duplicated by <a href="../-discovered-printer/id.html">DiscoveredPrinter.id</a>, which is endpoint-scheme-aware so network and BLE entries cannot collide.</p><p class="paragraph">Per-transport failures (e.g. BLE permission denied) arrive as <a href="../-discovery-event/-transport-failed/index.html">DiscoveryEvent.TransportFailed</a> rather than terminating the whole flow — the other transports keep scanning. Consumers that only care about results can <code class="lang-kotlin">.filterIsInstance&lt;DiscoveryEvent.Found&gt;().map { it.printer }</code>.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1347521717%2FConstructors%2F-2116065771" anchor-label="PrinterDiscoveryService" id="-1347521717%2FConstructors%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-printer-discovery-service.html"><span>Printer</span><wbr></wbr><span>Discovery</span><wbr></wbr><span><span>Service</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1347521717%2FConstructors%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="../-printer-context/index.html">PrinterContext</a><span class="token punctuation">, </span></span><span class="parameter ">networkOptions<span class="token operator">: </span><a href="../-network-scan-options/index.html">NetworkScanOptions</a><span class="token operator"> = </span>NetworkScanOptions()<span class="token punctuation">, </span></span><span class="parameter ">bleOptions<span class="token operator">: </span><a href="../-ble-scan-options/index.html">BleScanOptions</a><span class="token operator"> = </span>BleScanOptions()<span class="token punctuation">, </span></span><span class="parameter ">logger<span class="token operator">: </span><a href="../../dev.printbeam/-printer-logger/index.html">PrinterLogger</a><span class="token operator"> = </span>PrinterLogger.NoOp</span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="../-printer-context/index.html">PrinterContext</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Convenience for Swift / Obj-C consumers — Kotlin default arguments don't carry through the Obj-C bridge, so without this they'd have to construct <a href="../-network-scan-options/index.html">NetworkScanOptions</a> and <a href="../-ble-scan-options/index.html">BleScanOptions</a> explicitly even when they just want the defaults.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="../-printer-context/index.html">PrinterContext</a><span class="token punctuation">, </span></span><span class="parameter ">logger<span class="token operator">: </span><a href="../../dev.printbeam/-printer-logger/index.html">PrinterLogger</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Swift-friendly overload that takes only <span data-unresolved-link="dev.printbeam.discovery/PrinterDiscoveryService/&amp;lt;init&amp;gt;/#dev.printbeam.discovery.PrinterContext#dev.printbeam.PrinterLogger/PointingToCallableParameters(1)/">logger</span>, keeping the scan-option defaults.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="156392350%2FClasslikes%2F-2116065771" anchor-label="Companion" id="156392350%2FClasslikes%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="156392350%2FClasslikes%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-865640510%2FFunctions%2F-2116065771" anchor-label="describeScanRange" id="-865640510%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="describe-scan-range.html"><span>describe</span><wbr></wbr><span>Scan</span><wbr></wbr><span><span>Range</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-865640510%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="describe-scan-range.html"><span class="token function">describeScanRange</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CIDR of the network port-scan range (e.g. <code class="lang-kotlin">&quot;192.168.1.0/24&quot;</code>), or null if no LAN.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2091105671%2FFunctions%2F-2116065771" anchor-label="detectBleProfile" id="-2091105671%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="detect-ble-profile.html"><span>detect</span><wbr></wbr><span>Ble</span><wbr></wbr><span><span>Profile</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2091105671%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="detect-ble-profile.html"><span class="token function">detectBleProfile</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">endpoint<span class="token operator">: </span><a href="../../dev.printbeam/-printer-endpoint/-ble/index.html">PrinterEndpoint.Ble</a><span class="token punctuation">, </span></span><span class="parameter ">connectTimeoutMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.printbeam/-ble-profile/index.html">BleProfile</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Open a brief connection to a manually entered BLE printer and identify which named <a href="../../dev.printbeam/-ble-profile/index.html">BleProfile</a> (Nordic UART / Star / generic 0xFF00) its GATT tree exposes. Useful for the &quot;I have a MAC, but I don't know which profile to use&quot; path in a settings UI.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-160841801%2FFunctions%2F-2116065771" anchor-label="discover" id="-160841801%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="discover.html"><span><span>discover</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-160841801%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="discover.html"><span class="token function">discover</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeout<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">transports<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../../dev.printbeam/-transport/index.html">Transport</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="../-discovery-event/index.html">DiscoveryEvent</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1607393455%2FFunctions%2F-2116065771" anchor-label="scanOnce" id="1607393455%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="scan-once.html"><span>scan</span><wbr></wbr><span><span>Once</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1607393455%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="scan-once.html"><span class="token function">scanOnce</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeout<span class="token operator">: </span><span data-unresolved-link="/&amp;lt;Error class: unknown class&amp;gt;///PointingToDeclaration/">&lt;Error class: unknown class&gt;</span><span class="token operator"> = </span>DEFAULT_TIMEOUT<span class="token punctuation">, </span></span><span class="parameter ">transports<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../../dev.printbeam/-transport/index.html">Transport</a><span class="token operator">&gt;</span><span class="token operator"> = </span>Transport.entries.toSet()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-discovered-printer/index.html">DiscoveredPrinter</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Run a single scan to completion and return the deduplicated list of printers found.</p></div><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="scan-once.html"><span class="token function">scanOnce</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeoutMs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">, </span></span><span class="parameter ">transports<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><a href="../../dev.printbeam/-transport/index.html">Transport</a><span class="token operator">&gt;</span><span class="token operator"> = </span>Transport.entries.toSet()</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-discovered-printer/index.html">DiscoveredPrinter</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Millisecond overload of <a href="scan-once.html">scanOnce</a>. Exists because <code class="lang-kotlin">kotlin.time.Duration</code> is an inline class that bridges to Swift as an opaque <code class="lang-kotlin">Int64</code> of internal storage — Swift callers can pass <code class="lang-kotlin">timeoutMs: 6000</code> here instead of trying to construct a Duration from native code.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2026 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
