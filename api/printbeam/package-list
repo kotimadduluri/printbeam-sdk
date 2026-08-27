@@ -108,6 +108,7 @@ $dokka.location:dev.printbeam.escpos/ReceiptBuilder/codePage/#dev.printbeam.escp
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/codePage/#kotlin.Int/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/code-page.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/cut/#kotlin.Boolean/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/cut.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/divider/#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/divider.html
+$dokka.location:dev.printbeam.escpos/ReceiptBuilder/fallback/#kotlin.String#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/fallback.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/feed/#kotlin.Int/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/feed.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/image/#dev.printbeam.escpos.PlatformImage#kotlin.Int/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/image.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/line/#kotlin.String#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/line.html
@@ -117,7 +118,10 @@ $dokka.location:dev.printbeam.escpos/ReceiptBuilder/size/#kotlin.Int#kotlin.Int#
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/text/#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/text.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/toBytes/#/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/to-bytes.html
 $dokka.location:dev.printbeam.escpos/ReceiptBuilder/underline/#kotlin.Int#kotlin.Function1[dev.printbeam.escpos.ReceiptBuilder,kotlin.Unit]/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/underline.html
+$dokka.location:dev.printbeam.escpos/ReceiptBuilder/unicodeText/#kotlin.String#kotlin.Int#kotlin.Boolean#dev.printbeam.escpos.Alignment/PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-builder/unicode-text.html
 $dokka.location:dev.printbeam.escpos/ReceiptDsl///PointingToDeclaration/printbeam/dev.printbeam.escpos/-receipt-dsl/index.html
+$dokka.location:dev.printbeam.escpos/TextFallbacks///PointingToDeclaration/printbeam/dev.printbeam.escpos/-text-fallbacks/index.html
+$dokka.location:dev.printbeam.escpos/TextFallbacks/DEFAULT/#/PointingToDeclaration/printbeam/dev.printbeam.escpos/-text-fallbacks/-d-e-f-a-u-l-t.html
 $dokka.location:dev.printbeam.permissions////PointingToDeclaration/printbeam/dev.printbeam.permissions/index.html
 $dokka.location:dev.printbeam.permissions/BluetoothPermissions///PointingToDeclaration/printbeam/dev.printbeam.permissions/-bluetooth-permissions/index.html
 $dokka.location:dev.printbeam.permissions/BluetoothPermissions/allGranted/#[Error type: Unresolved type for Context]/PointingToDeclaration/printbeam/dev.printbeam.permissions/-bluetooth-permissions/all-granted.html
@@ -136,6 +140,8 @@ $dokka.location:dev.printbeam.sdk/PrintBeam/knownPrinters/#/PointingToDeclaratio
 $dokka.location:dev.printbeam.sdk/PrintBeam/print/#kotlin.String#kotlin.Function1[dev.printbeam.escpos.ReceiptBuilder,kotlin.Unit]#kotlin.Function1[dev.printbeam.PrintResult,kotlin.Unit]/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/print.html
 $dokka.location:dev.printbeam.sdk/PrintBeam/print/#kotlin.String#kotlin.Function1[dev.printbeam.escpos.ReceiptBuilder,kotlin.Unit]/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/print.html
 $dokka.location:dev.printbeam.sdk/PrintBeam/printerState/#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/printer-state.html
+$dokka.location:dev.printbeam.sdk/PrintBeam/queryDeviceInfo/#kotlin.String#kotlin.Function2[dev.printbeam.DeviceInfo?,dev.printbeam.PrinterException?,kotlin.Unit]/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/query-device-info.html
+$dokka.location:dev.printbeam.sdk/PrintBeam/queryDeviceInfo/#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/query-device-info.html
 $dokka.location:dev.printbeam.sdk/PrintBeam/queryStatus/#kotlin.String#kotlin.Function2[dev.printbeam.status.PrinterStatus?,dev.printbeam.PrinterException?,kotlin.Unit]/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/query-status.html
 $dokka.location:dev.printbeam.sdk/PrintBeam/queryStatus/#kotlin.String/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/query-status.html
 $dokka.location:dev.printbeam.sdk/PrintBeam/rememberPrinter/#dev.printbeam.discovery.DiscoveredPrinter#dev.printbeam.PaperWidth?/PointingToDeclaration/printbeam/dev.printbeam.sdk/-print-beam/remember-printer.html

@@ -1,0 +1,107 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../printbeam/0.1.0-alpha02/printbeam-0.1.0-alpha02.module",
+    "group": "dev.printbeam",
+    "module": "printbeam",
+    "version": "0.1.0-alpha02",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.1.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam-iosArm64Main-0.1.0-alpha02.klib",
+          "url": "printbeam-iosarm64-0.1.0-alpha02.klib",
+          "size": 294982,
+          "sha512": "8279b1d3a2176cbfaa6fe1df7731ccd1922ba2fd6ab3c560113aa6ed085c208e78f44f908f917e537ed436fe65ca778d24ba29fcf943c783058613113fa2d70f",
+          "sha256": "4920f1097e602432917add95e406323162c5097350ebc23ec6e898c869b36a29",
+          "sha1": "5e886ad6fa72338664324f8c3116ae961c57d082",
+          "md5": "f241fd9ba6acff5e63c1218684193a24"
+        }
+      ]
+    },
+    {
+      "name": "iosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam-iosarm64-0.1.0-alpha02-metadata.jar",
+          "url": "printbeam-iosarm64-0.1.0-alpha02-metadata.jar",
+          "size": 11133,
+          "sha512": "180c947380e36ffa1ace94a8562a9e5dabf792138444e24d56458ed5678167c150817b16f446120cc17f5ae790e6183c33c178e2f1d315decf8f9bed457835c1",
+          "sha256": "b8a00de73432e3e93b634ec9d8d4d434bf5c523ce2814c1a9ba46f760e91e660",
+          "sha1": "284e5035c88947e5e43edc5ebd9673dba5367ee6",
+          "md5": "f37b8b43c3fa8e025c57f0fcc913f0ce"
+        }
+      ]
+    }
+  ]
+}

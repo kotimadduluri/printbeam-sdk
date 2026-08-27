@@ -46,7 +46,7 @@
         </button>
         <div class="navigation-controls--break ui-kit_mobile-only"></div>
         <div class="library-version" id="library-version">
-0.1.0-alpha01        </div>
+0.1.0-alpha02        </div>
         <div class="navigation-controls">
         <div class="filter-section filter-section_loading" id="filter-section">
                 <button class="platform-tag platform-selector common-like" data-active=""
@@ -216,6 +216,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="printer-state.html"><span class="token function">printerState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><a href="../-printer-state/index.html">PrinterState</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Observe <a href="printer-state.html">printerId</a>'s session lifecycle. The returned flow is StateFlow-backed: it replays the latest state immediately on collection and then emits on every change — but it conflates, so a collector observes the latest state, not necessarily every intermediate transition (a fast <code class="lang-kotlin">Connecting</code> → <code class="lang-kotlin">Connected</code> flip may arrive as <code class="lang-kotlin">Connected</code> alone). Ids not (yet) registered read as <a href="../-printer-state/-disconnected/index.html">PrinterState.Disconnected</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="504627820%2FFunctions%2F-2116065771" anchor-label="queryDeviceInfo" id="504627820%2FFunctions%2F-2116065771" data-filterable-set=":printbeam/commonMain"></a>
+          <div class="table-row" data-filterable-current=":printbeam/commonMain" data-filterable-set=":printbeam/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="query-device-info.html"><span>query</span><wbr></wbr><span>Device</span><wbr></wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="504627820%2FFunctions%2F-2116065771"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":printbeam/commonMain"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="query-device-info.html"><span class="token function">queryDeviceInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../dev.printbeam/-device-info/index.html">DeviceInfo</a></div><div class="brief "><p class="paragraph">Query <a href="query-device-info.html">printerId</a>'s identity over the held session via ESC/POS <code class="lang-kotlin">GS I n</code> — manufacturer, model, firmware, serial. Fields the printer ignores come back null; <a href="../../dev.printbeam/-device-info/is-empty.html">DeviceInfo.isEmpty</a> is true when it ignored all four (typical for BLE printers). The main consumer use is naming printers the scan couldn't: a port-scan-only network printer has no mDNS name, but often answers <code class="lang-kotlin">GS I</code> with its model.</p></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="query-device-info.html"><span class="token function">queryDeviceInfo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">printerId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">onResult<span class="token operator">: </span><span class="token punctuation">(</span><a href="../../dev.printbeam/-device-info/index.html">DeviceInfo</a><span class="token operator">?</span><span class="token punctuation">, </span><a href="../../dev.printbeam/-printer-exception/index.html">PrinterException</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Callback twin of <a href="query-device-info.html">queryDeviceInfo</a>: runs in the facade scope, delivers <code class="lang-kotlin">(info, null)</code> on success or <code class="lang-kotlin">(null, failure)</code> when the query failed, on the main dispatcher.</p></div></div></div>
                 </div>
               </div>
             </div>

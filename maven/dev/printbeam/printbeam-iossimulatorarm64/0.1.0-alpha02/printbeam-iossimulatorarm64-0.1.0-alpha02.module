@@ -1,0 +1,107 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../printbeam/0.1.0-alpha02/printbeam-0.1.0-alpha02.module",
+    "group": "dev.printbeam",
+    "module": "printbeam",
+    "version": "0.1.0-alpha02",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.1.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam-iosSimulatorArm64Main-0.1.0-alpha02.klib",
+          "url": "printbeam-iossimulatorarm64-0.1.0-alpha02.klib",
+          "size": 295048,
+          "sha512": "65c346b0900a1bb5e6ce0acafa11a7b87d0199dd6cd1cd7fccd4cac276cab65602549c6a85322ea60339973bed09e3e0d9a782f176713f6a4126230faedf789f",
+          "sha256": "6ee6f6f656932fa4cfef3d2c7ca3fba94d214971111cdf807697bc1c20364444",
+          "sha1": "7acc92dcd077fb66bca5900a778cb1f6ffe391c4",
+          "md5": "a5361afa49612ab2df2f9df2a68bb99d"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam-iossimulatorarm64-0.1.0-alpha02-metadata.jar",
+          "url": "printbeam-iossimulatorarm64-0.1.0-alpha02-metadata.jar",
+          "size": 11133,
+          "sha512": "180c947380e36ffa1ace94a8562a9e5dabf792138444e24d56458ed5678167c150817b16f446120cc17f5ae790e6183c33c178e2f1d315decf8f9bed457835c1",
+          "sha256": "b8a00de73432e3e93b634ec9d8d4d434bf5c523ce2814c1a9ba46f760e91e660",
+          "sha1": "284e5035c88947e5e43edc5ebd9673dba5367ee6",
+          "md5": "f37b8b43c3fa8e025c57f0fcc913f0ce"
+        }
+      ]
+    }
+  ]
+}
