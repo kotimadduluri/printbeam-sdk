@@ -220,6 +220,12 @@ function initializeFiltering() {
     } else {
         filteringContext.activeFilters = filteringContext.restrictedDependencies
     }
+    // A stored filter state that hides every source set would leave the page permanently
+    // blank ("All documentation is filtered"). Reset to all-visible and clear the cache.
+    if (filteringContext.activeFilters.length === 0) {
+        filteringContext.activeFilters = [].concat(filteringContext.restrictedDependencies)
+        safeLocalStorage.removeItem('inactive-filters')
+    }
     refreshFiltering()
 }
 
