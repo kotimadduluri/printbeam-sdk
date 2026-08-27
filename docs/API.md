@@ -289,10 +289,10 @@ fun printerState(printerId: String): Flow<PrinterState>
 
 ```kotlin
 sealed class PrinterState {
-    object Disconnected                          // no session held (initial state)
-    object Connecting                            // an open is in flight
-    object Connected                             // live session; next print skips the handshake
-    class Failed(val cause: PrinterException)    // last open/print failed; no session held
+    object Disconnected : PrinterState()  // no session held; the initial state
+    object Connecting : PrinterState()    // a connection open is in flight
+    object Connected : PrinterState()     // live session; the next print skips the handshake
+    class Failed(val cause: PrinterException) : PrinterState()  // last open or print failed
 }
 ```
 
@@ -342,9 +342,10 @@ if (result is PrintResult.Failure) show(result.exception)
 
 ```kotlin
 sealed class PrintResult {
-    object Success
-    data class Failure(val exception: PrinterException)
-    val isSuccess: Boolean
+    object Success : PrintResult()
+    data class Failure(val exception: PrinterException) : PrintResult()
+
+    val isSuccess: Boolean  // true when this is Success
 }
 ```
 
@@ -406,7 +407,9 @@ data class DeviceInfo(
     val model: String?,         // GS I 67 — "TM-m30", "TSP143IIIW"
     val firmware: String?,      // GS I 65
     val serial: String?,        // GS I 68
-) { val isEmpty: Boolean }
+) {
+    val isEmpty: Boolean        // true when all four fields are null
+}
 ```
 
 ---
@@ -467,10 +470,15 @@ Where to reach a printer.
 
 ```kotlin
 sealed class PrinterEndpoint {
-    data class Network(val host: String, val port: Int = 9100)
-    data class Ble(val deviceId: String, val profile: BleProfile = BleProfile.NORDIC_UART)
-    val id: String          // "net://host:port" / "ble://deviceId"
-    val transport: Transport
+    abstract val id: String           // "net://host:port" or "ble://deviceId"
+    abstract val transport: Transport
+
+    data class Network(val host: String, val port: Int = 9100) : PrinterEndpoint()
+
+    data class Ble(
+        val deviceId: String,
+        val profile: BleProfile = BleProfile.NORDIC_UART,
+    ) : PrinterEndpoint()
 }
 ```
 
@@ -567,8 +575,12 @@ The SDK's only output channel. Silent by default.
 ```kotlin
 fun interface PrinterLogger {
     fun log(level: LogLevel, tag: String, message: String, throwable: Throwable?)
-    companion object { val NoOp: PrinterLogger }
+
+    companion object {
+        val NoOp: PrinterLogger   // drops every call
+    }
 }
+
 enum class LogLevel { VERBOSE, DEBUG, INFO, WARN, ERROR }
 ```
 
@@ -601,13 +613,15 @@ class Printer(
 )
 ```
 
+All methods below are suspend functions.
+
 | Method | What it does |
 |---|---|
-| `suspend print { … }: PrintResult` | Builds a receipt with the same DSL and sends it. Transport failures → `Failure`; only builder validation throws. |
-| `suspend sendRaw(bytes): PrintResult` | Sends pre-encoded ESC/POS bytes — pair with a standalone `ReceiptBuilder` for pre-rendered or fan-out printing. |
-| `suspend queryStatus(): PrinterStatus?` | `DLE EOT` status; null = printer sent no reply. |
-| `suspend queryDeviceInfo(): DeviceInfo` | `GS I` identity; unanswered fields are null. |
-| `suspend kickCashDrawer(pin = 0, onMs = 60, offMs = 120): PrintResult` | Drawer pulse without printing. |
+| `print(block: ReceiptBuilder.() -> Unit): PrintResult` | Builds a receipt with the same DSL and sends it. Transport failures return `Failure`; only builder validation throws. |
+| `sendRaw(bytes: ByteArray): PrintResult` | Sends pre-encoded ESC/POS bytes. Pair it with a standalone `ReceiptBuilder` for pre-rendered or fan-out printing. |
+| `queryStatus(): PrinterStatus?` | `DLE EOT` status. Null means the printer sent no reply. |
+| `queryDeviceInfo(): DeviceInfo` | `GS I` identity. Unanswered fields are null. |
+| `kickCashDrawer(pin = 0, onMs = 60, offMs = 120): PrintResult` | Drawer pulse without printing. |
 
 When using the facade, prefer `PrintBeam.queryStatus`/`queryDeviceInfo` over the `Printer`
 ones. The L1 path opens a second connection next to the facade's held one, which on BLE means
@@ -621,11 +635,18 @@ Bluetooth-state failures return immediately because another attempt can't help.
 
 ```kotlin
 suspend fun retryOnTransient(
-    maxAttempts: Int = 3, initialDelayMs: Long = 250, backoffFactor: Double = 2.0,
+    maxAttempts: Int = 3,
+    initialDelayMs: Long = 250,
+    backoffFactor: Double = 2.0,
     block: suspend () -> PrintResult,
 ): PrintResult
 
-suspend fun Printer.printWithRetry(/* same knobs */, block: ReceiptBuilder.() -> Unit): PrintResult
+suspend fun Printer.printWithRetry(
+    maxAttempts: Int = 3,
+    initialDelayMs: Long = 250,
+    backoffFactor: Double = 2.0,
+    block: ReceiptBuilder.() -> Unit,
+): PrintResult
 ```
 
 ### `PrinterDiscoveryService`
@@ -633,13 +654,13 @@ suspend fun Printer.printWithRetry(/* same knobs */, block: ReceiptBuilder.() ->
 The discovery engine underneath `PrintBeam.scan`, for consumers who want flows instead of
 listeners:
 
-- `discover(timeout, transports): Flow<DiscoveryEvent>` (via the `PrinterDiscovery`
-  interface) — streaming `Found` / `TransportFailed` events, already deduplicated and
-  enrichment-merged.
-- `suspend scanOnce(timeout, transports): List<DiscoveredPrinter>` — collect-to-list
-  convenience.
-- `suspend detectBleProfile(...)` — probe an unknown BLE printer for its writable
-  characteristic layout.
+- `discover(timeout: Duration, transports: Set<Transport>): Flow<DiscoveryEvent>` —
+  streaming `Found` / `TransportFailed` events, already deduplicated and enrichment-merged.
+- `suspend fun scanOnce(timeout: Duration, transports: Set<Transport>): List<DiscoveredPrinter>`
+  — runs one scan to completion and returns the deduplicated list. A `scanOnce(timeoutMs: Long, …)`
+  overload exists for Swift, where `Duration` doesn't bridge.
+- `suspend fun detectBleProfile(endpoint: PrinterEndpoint.Ble, connectTimeoutMs: Long = 5_000): BleProfile?`
+  — probes an unknown BLE printer and returns the matching known profile, or null if none match.
 - `describeScanRange(): String?` — human-readable subnet description ("192.168.1.0/24") for
   scan UI.
 - Tunables via `NetworkScanOptions` (port, per-host timeout, concurrency, and
@@ -652,11 +673,19 @@ The transport seam.
 
 ```kotlin
 fun interface ConnectionFactory {
-    fun create(endpoint, context, connectTimeoutMs, ioTimeoutMs): PrinterConnection
+    fun create(
+        endpoint: PrinterEndpoint,
+        context: PrinterContext?,
+        connectTimeoutMs: Long,
+        ioTimeoutMs: Long,
+    ): PrinterConnection
 }
+
 interface PrinterConnection {
-    suspend fun open(); suspend fun write(bytes: ByteArray)
-    suspend fun read(maxBytes: Int, timeoutMs: Long): ByteArray; suspend fun close()
+    suspend fun open()
+    suspend fun write(bytes: ByteArray)
+    suspend fun read(maxBytes: Int, timeoutMs: Long): ByteArray
+    suspend fun close()
 }
 ```
 
