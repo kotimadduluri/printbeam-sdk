@@ -28,7 +28,7 @@ dependencyResolutionManagement {
 
 // build.gradle.kts
 dependencies {
-    implementation("dev.printbeam:printbeam-android:0.1.0-alpha01")
+    implementation("dev.printbeam:printbeam-android:0.1.0-alpha03")
 }
 ```
 
@@ -38,7 +38,7 @@ Same repository line as above, then in `commonMain`:
 
 ```kotlin
 dependencies {
-    implementation("dev.printbeam:printbeam:0.1.0-alpha01")
+    implementation("dev.printbeam:printbeam:0.1.0-alpha03")
 }
 ```
 
