@@ -4,7 +4,7 @@ This page explains every public method of the SDK and how to use them together. 
 [generated Dokka reference](https://kotimadduluri.github.io/printbeam-sdk/api/) covers every
 symbol exhaustively; this page is the annotated companion.
 
-Current version: **0.1.0-alpha03**. All packages live under `dev.printbeam.*`.
+Current version: **0.1.0-alpha04**. All packages live under `dev.printbeam.*`.
 
 The SDK has two layers. Most apps only need the facade, `dev.printbeam.sdk.PrintBeam`. It holds
 one connection per printer across prints and manages scan and connect lifecycles for you. The
