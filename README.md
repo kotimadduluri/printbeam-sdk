@@ -85,10 +85,13 @@ connection state is observable as a `Flow<PrinterState>`.
 
 ## Documentation
 
+- **[API guide](docs/API.md)** — every public method explained, with the patterns they're
+  meant to be used in.
 - **[API reference](https://kotimadduluri.github.io/printbeam-sdk/api/)** — full Dokka docs
   for the public surface.
-- **Sample apps** — three complete integrations (native Android, native Swift, Kotlin
-  Multiplatform): *coming with the first release.*
+- **[Sample apps](https://github.com/kotimadduluri/printbeam-samples)** — three complete
+  integrations of the same grocery app: native Android (Compose), native iOS (SwiftUI),
+  and Kotlin Multiplatform.
 - **[Releases](https://github.com/kotimadduluri/printbeam-sdk/releases)** — changelogs and
   XCFramework downloads.
 
