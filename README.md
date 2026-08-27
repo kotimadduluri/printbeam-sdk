@@ -1,4 +1,9 @@
-# PrintBeam SDK
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+    <img src="assets/logo-light.svg" alt="PrintBeam" height="76">
+  </picture>
+</p>
 
 **ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform. One API for network
 and BLE printers.**
