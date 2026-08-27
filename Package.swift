@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "PrintBeam",
-            url: "https://github.com/kotimadduluri/printbeam-sdk/releases/download/v0.1.0-alpha02/PrintBeam.xcframework.zip",
-            checksum: "d1f7760cbbb48a132da6f92cfe10a2bca84812683cd2f0fd151426f8a28e2377"
+            url: "https://github.com/kotimadduluri/printbeam-sdk/releases/download/v0.1.0-alpha03/PrintBeam.xcframework.zip",
+            checksum: "cfdd122648881b0e04012ec72386c9e410b2c2fc0b7cbc9c8da93b5867916c29"
         )
     ]
 )

@@ -3,11 +3,11 @@
   <groupId>dev.printbeam</groupId>
   <artifactId>printbeam-android</artifactId>
   <versioning>
-    <latest>0.1.0-alpha02</latest>
-    <release>0.1.0-alpha02</release>
+    <latest>0.1.0-alpha03</latest>
+    <release>0.1.0-alpha03</release>
     <versions>
-      <version>0.1.0-alpha02</version>
+      <version>0.1.0-alpha03</version>
     </versions>
-    <lastUpdated>20260827072243</lastUpdated>
+    <lastUpdated>20260827075140</lastUpdated>
   </versioning>
 </metadata>

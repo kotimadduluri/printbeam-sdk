@@ -1,0 +1,157 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "dev.printbeam",
+    "module": "printbeam",
+    "version": "0.1.0-alpha03",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.1.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "metadataApiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.platform.type": "common"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam-metadata-0.1.0-alpha03.jar",
+          "url": "printbeam-0.1.0-alpha03.jar",
+          "size": 32937,
+          "sha512": "23721c9c7b325f7c13f3adb6d99d34dff257cee33f2285a7278868a9f18fc52cca8a828dedf2137d09ae740c4a4b4c8b77fde4e605e32a3d5d44bc3f285f38f2",
+          "sha256": "10644acd021d7fcb8cdd41bf8b0fce4ca7b2bf4d5e79403e1dcbc98827c7717d",
+          "sha1": "734a733c3a56f4ac88bc186c1efb49ca9b7e4b2e",
+          "md5": "6204b9808df5eaf07bc4f258ff7128c9"
+        }
+      ]
+    },
+    {
+      "name": "androidApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../printbeam-android/0.1.0-alpha03/printbeam-android-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-android",
+        "version": "0.1.0-alpha03"
+      }
+    },
+    {
+      "name": "androidRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "available-at": {
+        "url": "../../printbeam-android/0.1.0-alpha03/printbeam-android-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-android",
+        "version": "0.1.0-alpha03"
+      }
+    },
+    {
+      "name": "iosArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../printbeam-iosarm64/0.1.0-alpha03/printbeam-iosarm64-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-iosarm64",
+        "version": "0.1.0-alpha03"
+      }
+    },
+    {
+      "name": "iosArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../printbeam-iosarm64/0.1.0-alpha03/printbeam-iosarm64-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-iosarm64",
+        "version": "0.1.0-alpha03"
+      }
+    },
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../printbeam-iossimulatorarm64/0.1.0-alpha03/printbeam-iossimulatorarm64-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-iossimulatorarm64",
+        "version": "0.1.0-alpha03"
+      }
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "available-at": {
+        "url": "../../printbeam-iossimulatorarm64/0.1.0-alpha03/printbeam-iossimulatorarm64-0.1.0-alpha03.module",
+        "group": "dev.printbeam",
+        "module": "printbeam-iossimulatorarm64",
+        "version": "0.1.0-alpha03"
+      }
+    }
+  ]
+}
