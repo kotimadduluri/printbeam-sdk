@@ -1,7 +1,7 @@
 # PrintBeam SDK
 
-**ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform — one API for network
-(Wi-Fi / Ethernet) and Bluetooth Low Energy printers.**
+**ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform. One API for network
+and BLE printers.**
 
 This repository is the official binary distribution of PrintBeam: a hosted Maven repository,
 a Swift Package, per-release XCFrameworks, and the API documentation. The SDK is **free to
@@ -63,10 +63,10 @@ No credentials or accounts are needed for any of the above.
 // Once, at app startup:
 PrintBeam.initialize(PrintBeamConfig(context = PrinterContext(applicationContext)))
 
-// Find printers — results stream in as they respond, Wi-Fi and BLE alike:
+// Find printers. Results stream in as they respond, network and BLE alike:
 PrintBeam.scan(transports = setOf(Transport.NETWORK, Transport.BLE), listener = myListener)
 
-// Print by stable id — PrintBeam holds the connection across prints and
+// Print by stable id. PrintBeam holds the connection across prints and
 // reopens dead links automatically:
 PrintBeam.print(printerId) {
     align(Alignment.CENTER); bold { text("MY STORE") }
@@ -78,15 +78,15 @@ PrintBeam.print(printerId) {
 }
 ```
 
-Every suspend function has a callback twin for Swift and Java call sites; per-printer
+Every suspend function has a callback twin for Swift and Java call sites. Per-printer
 connection state is observable as a `Flow<PrinterState>`.
 
 ---
 
 ## Documentation
 
-- **[API guide](docs/API.md)** — every public method explained, with the patterns they're
-  meant to be used in.
+- **[API guide](docs/API.md)** — every public method explained, with the patterns to use
+  them in.
 - **[API reference](https://kotimadduluri.github.io/printbeam-sdk/api/)** — full Dokka docs
   for the public surface.
 - **[Sample apps](https://github.com/kotimadduluri/printbeam-samples)** — three complete
