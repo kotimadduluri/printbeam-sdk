@@ -1,0 +1,107 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../printbeam/0.1.0-alpha04/printbeam-0.1.0-alpha04.module",
+    "group": "dev.printbeam",
+    "module": "printbeam",
+    "version": "0.1.0-alpha04",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "9.1.0"
+    }
+  },
+  "variants": [
+    {
+      "name": "androidApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam.aar",
+          "url": "printbeam-android-0.1.0-alpha04.aar",
+          "size": 293700,
+          "sha512": "59c50923a8b3515946645a23042308084780482005b900b36358dc0d822a474b9717d798a7754bd5279e4976a4a05e4c1c437a96ba032627fbdcb72a667dbefc",
+          "sha256": "4893e948558346e70edc4b463a34ce1d4ccb6f483ab5f7e0c32478285252e291",
+          "sha1": "1e1c9db4aee3648a9cc96756a3833d3c7dbb9dff",
+          "md5": "fd54842efc37e4c4d752d4f8e21f9492"
+        }
+      ]
+    },
+    {
+      "name": "androidRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.3.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.10.1"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-network",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "printbeam.aar",
+          "url": "printbeam-android-0.1.0-alpha04.aar",
+          "size": 293700,
+          "sha512": "59c50923a8b3515946645a23042308084780482005b900b36358dc0d822a474b9717d798a7754bd5279e4976a4a05e4c1c437a96ba032627fbdcb72a667dbefc",
+          "sha256": "4893e948558346e70edc4b463a34ce1d4ccb6f483ab5f7e0c32478285252e291",
+          "sha1": "1e1c9db4aee3648a9cc96756a3833d3c7dbb9dff",
+          "md5": "fd54842efc37e4c4d752d4f8e21f9492"
+        }
+      ]
+    }
+  ]
+}
