@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.url != "/" %}{{ page.title }} · PrintBeam{% else %}PrintBeam · ESC/POS printing SDK{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta property="og:title" content="{% if page.title and page.url != '/' %}{{ page.title }} · PrintBeam{% else %}PrintBeam{% endif %}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:image" content="{{ '/assets/social-preview.png' | absolute_url }}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ '/assets/icon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #FDFCFA;
+  --bg-raised: #F5F2EC;
+  --text: #1F1B14;
+  --muted: #6E675C;
+  --line: #E7E3DA;
+  --accent: #8F5E06;
+  --accent-strong: #D08915;
+  --code-bg: #F5F2EC;
+  --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151210;
+    --bg-raised: #1C1915;
+    --text: #ECE8E1;
+    --muted: #A39A8D;
+    --line: #2B2620;
+    --accent: #E8A23C;
+    --accent-strong: #E8A23C;
+    --code-bg: #1C1915;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.site-header .inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-logo { display: flex; align-items: center; text-decoration: none; }
+.site-logo img { height: 24px; display: block; }
+.site-nav {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.site-nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+.site-nav a:hover { color: var(--text); }
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+}
+h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 1rem; }
+h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin: 2.6rem 0 0.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+h3 { font-size: 1.05rem; font-weight: 600; margin: 2rem 0 0.6rem; }
+h4 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+h2:first-child, h3:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+ul, ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+li { margin-bottom: 0.35rem; }
+strong { font-weight: 600; }
+img { max-width: 100%; }
+blockquote {
+  margin: 0 0 1rem;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid var(--accent-strong);
+  background: var(--bg-raised);
+  border-radius: 0 6px 6px 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  line-height: 1.55;
+}
+pre code { background: none; border: 0; padding: 0; font-size: 13px; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1.2rem;
+  font-size: 14px;
+  display: block;
+  overflow-x: auto;
+}
+th, td { text-align: left; padding: 0.5rem 0.9rem 0.5rem 0; vertical-align: top; }
+th { font-weight: 600; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+/* Rouge syntax highlighting, both themes via tokens */
+.highlight .c, .highlight .c1, .highlight .cm { color: var(--muted); }
+.highlight .k, .highlight .kd, .highlight .kt, .highlight .kr { color: var(--accent); }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sc { color: #57733F; }
+@media (prefers-color-scheme: dark) {
+  .highlight .s, .highlight .s1, .highlight .s2, .highlight .sc { color: #A8BC85; }
+}
+.highlight .mi, .highlight .mf, .highlight .mh { color: var(--accent); }
+.highlight .na, .highlight .nt { color: var(--accent); }
+/* Tabs. Without JS every panel renders stacked under its own label. */
+.tabs { margin: 0 0 1.4rem; }
+.tabs .tab { margin-bottom: 1.5rem; }
+.tabs .tab::before {
+  content: attr(data-title);
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+.tabs.tabs-ready .tab::before { display: none; }
+.tabs.tabs-ready .tab { display: none; margin-bottom: 0; }
+.tabs.tabs-ready .tab.active { display: block; }
+.tablist {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+}
+.tablist button {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.9rem;
+  font: 500 14px var(--sans);
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.tablist button:hover { color: var(--text); }
+.tablist button[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--accent-strong);
+}
+.tablist button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -2px; border-radius: 4px; }
+/* Homepage doc index */
+.doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 2rem;
+  margin: 0 0 1rem;
+}
+.doc-grid a {
+  display: block;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+.doc-grid a:hover .doc-title { color: var(--accent); }
+.doc-title { font-weight: 600; font-size: 14.5px; }
+.doc-sub { color: var(--muted); font-size: 13.5px; margin-top: 0.15rem; }
+@media (max-width: 640px) {
+  .doc-grid { grid-template-columns: 1fr; }
+  main { padding-top: 1.8rem; }
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+.site-footer .inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.3rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="inner">
+    <a class="site-logo" href="{{ '/' | relative_url }}" aria-label="PrintBeam home">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="{{ '/assets/logo-dark.svg' | relative_url }}">
+        <img src="{{ '/assets/logo-light.svg' | relative_url }}" alt="PrintBeam">
+      </picture>
+    </a>
+    <nav class="site-nav">
+      <a href="{{ '/docs/GETTING-STARTED.html' | relative_url }}">Get started</a>
+      <a href="{{ '/docs/API.html' | relative_url }}">API guide</a>
+      <a href="{{ '/api/' | relative_url }}">Reference</a>
+      <a href="{{ '/docs/TROUBLESHOOTING.html' | relative_url }}">Troubleshooting</a>
+      <a href="https://github.com/kotimadduluri/printbeam-samples">Samples</a>
+      <a href="https://github.com/kotimadduluri/printbeam-sdk">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main>
+{{ content }}
+</main>
+<footer class="site-footer">
+  <div class="inner">
+    <span>© 2026 PrintBeam. Free to use, including commercially.</span>
+    <span>
+      <a href="https://github.com/kotimadduluri/printbeam-sdk/blob/main/LICENSE.md">License</a> ·
+      <a href="https://github.com/kotimadduluri/printbeam-sdk/issues">Issues</a> ·
+      <a href="https://github.com/kotimadduluri/printbeam-sdk/releases">Releases</a>
+    </span>
+  </div>
+</footer>
+<script>
+(function () {
+  var KEY = "printbeam-platform";
+  var groups = document.querySelectorAll("[data-tabs]");
+  if (!groups.length) return;
+
+  function activate(title) {
+    try { localStorage.setItem(KEY, title); } catch (e) {}
+    groups.forEach(function (group) {
+      var tabs = group.querySelectorAll(":scope > .tab");
+      var buttons = group.querySelectorAll(":scope > .tablist > button");
+      var found = false;
+      tabs.forEach(function (tab) {
+        var match = tab.getAttribute("data-title") === title;
+        tab.classList.toggle("active", match);
+        if (match) found = true;
+      });
+      buttons.forEach(function (btn) {
+        btn.setAttribute("aria-selected", btn.textContent === title ? "true" : "false");
+      });
+      if (!found && tabs.length) {
+        tabs[0].classList.add("active");
+        if (buttons.length) buttons[0].setAttribute("aria-selected", "true");
+      }
+    });
+  }
+
+  groups.forEach(function (group) {
+    var tabs = group.querySelectorAll(":scope > .tab");
+    var list = document.createElement("div");
+    list.className = "tablist";
+    list.setAttribute("role", "tablist");
+    tabs.forEach(function (tab) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("role", "tab");
+      btn.textContent = tab.getAttribute("data-title");
+      btn.addEventListener("click", function () { activate(btn.textContent); });
+      list.appendChild(btn);
+    });
+    group.insertBefore(list, group.firstChild);
+    group.classList.add("tabs-ready");
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  activate(saved || groups[0].querySelector(":scope > .tab").getAttribute("data-title"));
+})();
+</script>
+</body>
+</html>

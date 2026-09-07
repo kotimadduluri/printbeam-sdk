@@ -1,0 +1,17 @@
+title: PrintBeam
+description: ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform. One API for network and BLE printers.
+url: "https://kotimadduluri.github.io"
+baseurl: "/printbeam-sdk"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Every markdown page renders through our own layout. Files without front matter
+# (the Dokka output under api/, the Maven tree, Package.swift) are static and untouched.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

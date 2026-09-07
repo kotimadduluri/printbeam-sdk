@@ -1,4 +1,12 @@
+---
+title: API guide
+description: Every public PrintBeam method explained, with the patterns to use them in.
+---
+
 # PrintBeam API reference
+
+New to the SDK? [Getting started](GETTING-STARTED.md) walks install, permissions, and a
+first receipt per platform.
 
 This page explains every public method of the SDK and how to use them together. The
 [generated Dokka reference](https://kotimadduluri.github.io/printbeam-sdk/api/) covers every
