@@ -1,11 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="116" fill="#171410"/>
-  <rect x="250" y="88" width="12" height="30" rx="6" fill="#E8A23C"/>
-  <rect x="250" y="130" width="12" height="18" rx="6" fill="#E8A23C"/>
-  <rect x="250" y="158" width="12" height="8" rx="4" fill="#E8A23C"/>
-  <path d="M144 406 V194 Q144 176 162 176 H350 Q368 176 368 194 V406 L340 422 L312 406 L284 422 L256 406 L228 422 L200 406 L172 422 Z" fill="#FDFCFA"/>
-  <rect x="176" y="210" width="160" height="14" rx="7" fill="#E8A23C"/>
-  <rect x="176" y="250" width="160" height="12" rx="6" fill="#C9C3B8"/>
-  <rect x="176" y="282" width="104" height="12" rx="6" fill="#C9C3B8"/>
-  <rect x="176" y="314" width="136" height="12" rx="6" fill="#C9C3B8"/>
+  <path d="M148 140 H364 V388 L333 412 L302 388 L271 412 L240 388 L209 412 L178 388 L148 412 Z" fill="#FDFCFA"/>
+  <rect x="96" y="100" width="320" height="44" rx="22" fill="#E8A23C"/>
+  <rect x="182" y="188" width="148" height="18" rx="9" fill="#E8A23C"/>
+  <rect x="182" y="230" width="148" height="16" rx="8" fill="#C9C3B8"/>
+  <rect x="182" y="270" width="100" height="16" rx="8" fill="#C9C3B8"/>
 </svg>
