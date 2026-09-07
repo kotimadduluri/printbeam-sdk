@@ -82,8 +82,8 @@ main {
   margin: 0 auto;
   padding: 2.5rem 1.25rem 5rem;
 }
-h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 1rem; }
-h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin: 2.6rem 0 0.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+h1 { font-size: 1.9rem; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 1rem; text-wrap: balance; }
+h2 { font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; margin: 2.6rem 0 0.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line); text-wrap: balance; }
 h3 { font-size: 1.05rem; font-weight: 600; margin: 2rem 0 0.6rem; }
 h4 { font-size: 0.95rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
 h2:first-child, h3:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -106,6 +106,7 @@ blockquote p:last-child { margin-bottom: 0; }
 code {
   font-family: var(--mono);
   font-size: 0.86em;
+  overflow-wrap: anywhere;
   background: var(--code-bg);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -190,6 +191,7 @@ tr:last-child td { border-bottom: 0; }
   gap: 0 2rem;
   margin: 0 0 1rem;
 }
+.doc-grid { border-bottom: 1px solid var(--line); }
 .doc-grid a {
   display: block;
   padding: 0.85rem 0;
@@ -198,8 +200,8 @@ tr:last-child td { border-bottom: 0; }
   text-decoration: none;
 }
 .doc-grid a:hover .doc-title { color: var(--accent); }
-.doc-title { font-weight: 600; font-size: 14.5px; }
-.doc-sub { color: var(--muted); font-size: 13.5px; margin-top: 0.15rem; }
+.doc-title { display: block; font-weight: 600; font-size: 14.5px; }
+.doc-sub { display: block; color: var(--muted); font-size: 13.5px; margin-top: 0.15rem; }
 @media (max-width: 640px) {
   .doc-grid { grid-template-columns: 1fr; }
   main { padding-top: 1.8rem; }
