@@ -100,6 +100,10 @@ connection state is observable as a `Flow<PrinterState>`.
     <span class="doc-title">API reference</span>
     <span class="doc-sub">Generated docs for every public symbol.</span>
   </a>
+  <a href="{{ '/docs/COMPATIBILITY.html' | relative_url }}">
+    <span class="doc-title">Compatibility</span>
+    <span class="doc-sub">Which printers are confirmed, and which toolchain versions.</span>
+  </a>
   <a href="{{ '/docs/TROUBLESHOOTING.html' | relative_url }}">
     <span class="doc-title">Troubleshooting</span>
     <span class="doc-sub">Scans that find nothing, BLE quirks, wrong characters.</span>

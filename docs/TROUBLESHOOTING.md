@@ -112,6 +112,27 @@ reopens once, and retries the write before reporting failure. If you still get
 address: DHCP may have handed it a new IP. Rescan, or give the printer a static
 address; BLE device ids and `net://` ids are stable, but an IP lease is not.
 
+## First print fails after the app was in the background on a handheld
+
+The facade holds a connection between prints, which assumes the device stays awake. That is
+true of a till with the screen on and power connected, and Android's Doze never engages under
+those conditions. It is not true of a battery-powered handheld that sleeps in a pocket: the OS
+can close the socket underneath the held session without notifying the SDK.
+
+You normally see this as one slower print rather than a failure, because a failed write closes
+the connection, reopens it, and retries once. If you want to avoid it entirely, drop the
+session when your app backgrounds:
+
+```kotlin
+override fun onStop() {
+    super.onStop()
+    lifecycleScope.launch { PrintBeam.disconnect(printerId) }
+}
+```
+
+The next print reconnects cleanly. On BLE that costs the 1 to 3 second handshake once, which
+is the trade you want on a device that sleeps.
+
 ## Cleartext / network security policy errors on Android
 
 Thermal printers speak plain TCP; there is no TLS. If your app ships a strict

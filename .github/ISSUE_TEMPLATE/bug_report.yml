@@ -1,0 +1,88 @@
+name: Bug report
+description: Something in the SDK does not work as documented
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Printing bugs are hard to diagnose without the printer details and the logs, so this
+        form asks for them up front. If you are reporting that a specific printer does not
+        work at all, use the **Printer compatibility report** form instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead. A photo of a misprinted receipt is often the fastest way to explain it.
+      placeholder: The receipt printed, but everything after the QR code was missing.
+    validations:
+      required: true
+
+  - type: input
+    id: printer
+    attributes:
+      label: Printer make and model
+      description: Exactly as written on the device. "No-name 58mm" is a valid answer if that is genuinely all it says.
+      placeholder: EPSON TM-m30
+    validations:
+      required: true
+
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      options:
+        - Network (WiFi or Ethernet, TCP 9100)
+        - Bluetooth LE
+        - Both
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android
+        - iOS
+        - Kotlin Multiplatform (both)
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: PrintBeam version
+      placeholder: 0.1.0-alpha04
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version and device
+      placeholder: Android 14, Pixel 7
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logger output
+      description: |
+        The SDK is silent unless you give it a logger. Pass one to `PrintBeamConfig` and paste what it prints around the failure:
+
+        ```kotlin
+        logger = PrinterLogger { level, tag, message, throwable -> Log.println(Log.INFO, tag, message) }
+        ```
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Including the receipt-building code if the problem is in the output.
+    validations:
+      required: false

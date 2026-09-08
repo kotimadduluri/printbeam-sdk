@@ -97,6 +97,8 @@ connection state is observable as a `Flow<PrinterState>`.
   receipt, with a tab per platform (Android, iOS, KMP + Compose).
 - **[API guide](docs/API.md)** — every public method explained, with the patterns to use
   them in.
+- **[Compatibility](docs/COMPATIBILITY.md)** — confirmed printers, and which Kotlin, AGP and
+  platform versions each release supports.
 - **[Troubleshooting](docs/TROUBLESHOOTING.md)** — empty scans, BLE quirks, wrong
   characters, permission problems.
 - **[API reference](https://kotimadduluri.github.io/printbeam-sdk/api/)** — full Dokka docs

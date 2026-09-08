@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://kotimadduluri.github.io/printbeam-sdk/
+    about: Getting started per platform, the API guide, and troubleshooting. Check the troubleshooting page first, most scan and BLE problems are covered there.
+  - name: Sample apps
+    url: https://github.com/kotimadduluri/printbeam-samples
+    about: Three complete working integrations - native Android, native iOS, and Kotlin Multiplatform.
+  - name: Report a security vulnerability
+    url: https://github.com/kotimadduluri/printbeam-sdk/security/advisories/new
+    about: Please do not open a public issue for security problems.

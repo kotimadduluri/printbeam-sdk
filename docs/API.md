@@ -280,6 +280,14 @@ fun disconnect(printerId: String, onResult: (PrinterException?) -> Unit)
 
 - No-op when nothing is connected, unknown ids included.
 - There is no idle timeout. A held session stays held until you disconnect or call `shutdown`.
+- **Held sessions assume a mains-powered device.** The design target is a till: an EPOS
+  terminal or billing counter with the screen on and power connected, printing all day.
+  Android's Doze requires the device to be unplugged with the screen off, so it never engages
+  there. On a battery-powered handheld that sleeps, the OS can close the socket underneath a
+  held session without telling the SDK, and that only surfaces on the next write, where the
+  link-drop recovery above absorbs it as one slower print. If the reopen also fails, you get
+  `PrintResult.Failure`. For handheld deployments, call `disconnect(printerId)` when your app
+  goes to the background and let the next print connect cleanly.
 
 ### `PrintBeam.printerState(printerId)`
 

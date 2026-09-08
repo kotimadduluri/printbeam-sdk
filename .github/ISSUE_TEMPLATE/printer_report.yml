@@ -1,0 +1,77 @@
+name: Printer compatibility report
+description: Tell us a printer works, or does not, so it can go on the compatibility list
+labels: ["compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The SDK is tested on the two printers its author owns, so every report here is
+        genuinely useful. **Please report printers that work as well as ones that do not.**
+        Confirmed models go on the [compatibility list](https://kotimadduluri.github.io/printbeam-sdk/docs/COMPATIBILITY.html).
+
+  - type: input
+    id: printer
+    attributes:
+      label: Printer make and model
+      placeholder: Star Micronics TSP143IIIW
+    validations:
+      required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Works
+        - Works with caveats
+        - Does not work
+    validations:
+      required: true
+
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      options:
+        - Network (WiFi or Ethernet, TCP 9100)
+        - Bluetooth LE
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verified
+    attributes:
+      label: What did you verify
+      options:
+        - label: Printer was found by scan
+        - label: Printer appeared with its name, not just an address
+        - label: Text printed correctly
+        - label: Barcode or QR code printed
+        - label: Image printing
+        - label: Paper cut
+        - label: Cash drawer kick
+        - label: Status query returned something
+
+  - type: input
+    id: paper
+    attributes:
+      label: Paper width
+      placeholder: 80mm
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: PrintBeam version
+      placeholder: 0.1.0-alpha04
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Caveats or details
+      description: Anything that needed a non-default setting, a custom BleProfile, or a workaround. If it did not work, what happened.
+    validations:
+      required: false
