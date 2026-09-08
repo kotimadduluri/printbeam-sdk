@@ -1,5 +1,10 @@
 title: PrintBeam
-description: ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform. One API for network and BLE printers.
+# Homepage <title>. Carries the terms developers actually search for; keep it under
+# 60 characters so Google doesn't truncate it in results.
+seo_title: "PrintBeam · ESC/POS Printer SDK for Android, iOS & KMP"
+description: ESC/POS thermal printing for Android, iOS, and Kotlin Multiplatform. One API for network and Bluetooth LE receipt printers, with a Kotlin receipt DSL.
+# Shown in the homepage's structured data. Bump on each release.
+sdk_version: "0.1.0-alpha04"
 url: "https://kotimadduluri.github.io"
 baseurl: "/printbeam-sdk"
 

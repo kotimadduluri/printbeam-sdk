@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
-description: Fixes for the common failure modes - empty scans, BLE printers that connect but do not print, wrong characters, and permission problems.
+seo_title: "Troubleshooting ESC/POS Printer Problems"
+description: Fixes for the common failure modes - empty printer scans, BLE printers that connect but do not print, wrong characters, and permission problems.
 ---
 
 # Troubleshooting

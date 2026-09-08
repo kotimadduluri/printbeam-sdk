@@ -1,6 +1,7 @@
 ---
 title: API guide
-description: Every public PrintBeam method explained, with the patterns to use them in.
+seo_title: "API Guide: Printing, Discovery & Receipt DSL"
+description: Every public PrintBeam method explained - printer discovery, held connections, the Kotlin receipt DSL, status queries, and error handling.
 ---
 
 # PrintBeam API reference

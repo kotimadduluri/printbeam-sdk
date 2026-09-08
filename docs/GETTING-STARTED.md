@@ -1,6 +1,7 @@
 ---
 title: Getting started
-description: Install PrintBeam, set up platform permissions, and print your first receipt on Android, iOS, or Kotlin Multiplatform.
+seo_title: "Getting Started: Android, iOS & KMP Setup"
+description: Install PrintBeam, set up platform permissions, and print your first receipt from an Android, iOS, or Kotlin Multiplatform app.
 ---
 
 # Getting started

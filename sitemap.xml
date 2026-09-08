@@ -1,0 +1,22 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Built from the site's own pages, so new docs appear here automatically. The
+  Dokka reference under api/ is static output rather than a Jekyll page, so its
+  index is listed explicitly. lastmod is deliberately absent: nothing here
+  tracks per-page modification dates, and a wrong date is worse than none.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign pages = site.pages | sort: "url" -%}
+{%- for p in pages -%}
+{%- unless p.sitemap == false -%}
+{%- if p.url == "/" or p.url contains ".html" %}
+  <url><loc>{{ p.url | absolute_url | xml_escape }}</loc></url>
+{%- endif -%}
+{%- endunless -%}
+{%- endfor %}
+  <url><loc>{{ '/api/' | absolute_url | xml_escape }}</loc></url>
+</urlset>
