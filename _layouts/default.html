@@ -6,12 +6,12 @@
 {% assign page_title = page.seo_title | default: page.title %}
 {% if page.url == "/" %}{% assign full_title = site.seo_title %}{% else %}{% assign full_title = page_title | append: " · PrintBeam" %}{% endif %}
 {% assign page_desc = page.description | default: site.description %}
-<title>{{ full_title }}</title>
-<meta name="description" content="{{ page_desc }}">
+<title>{{ full_title | escape }}</title>
+<meta name="description" content="{{ page_desc | escape }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 <meta name="author" content="Koti Madduluri">
-<meta property="og:title" content="{{ full_title }}">
-<meta property="og:description" content="{{ page_desc }}">
+<meta property="og:title" content="{{ full_title | escape }}">
+<meta property="og:description" content="{{ page_desc | escape }}">
 <meta property="og:image" content="{{ '/assets/social-preview.png' | absolute_url }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:site_name" content="PrintBeam">

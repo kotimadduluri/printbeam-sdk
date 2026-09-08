@@ -20,3 +20,10 @@ defaults:
       path: ""
     values:
       layout: default
+
+# Kept in the repo (GitHub renders them there) but not published as pages: README.md
+# duplicates the homepage almost verbatim, and both would otherwise be served as raw
+# markdown competing with the real pages in search results.
+exclude:
+  - README.md
+  - LICENSE.md
