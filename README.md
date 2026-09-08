@@ -109,6 +109,30 @@ connection state is observable as a `Flow<PrinterState>`.
 - **[Releases](https://github.com/kotimadduluri/printbeam-sdk/releases)** — changelogs and
   XCFramework downloads.
 
+## Where this is going
+
+PrintBeam is pre-1.0 and maintained by one person, so here is the honest state of it rather
+than a roadmap with dates on it.
+
+**Working on now.** Widening hardware coverage. The SDK is tested on the two printers its
+author owns, which is the weakest part of the project. Every
+[compatibility report](https://github.com/kotimadduluri/printbeam-sdk/issues/new?template=printer_report.yml)
+directly improves it, including reports that a printer works.
+
+**Likely next**, roughly in order: lifecycle-aware sessions for battery-powered handhelds
+(see the note on held sessions in the [API guide](docs/API.md#sessions)), a USB transport for
+countertop terminals, and a JVM desktop target. None of these are started, and real requests
+will reorder them.
+
+**Deliberately out of scope.** Bluetooth Classic and SPP. iOS restricts Bluetooth Classic to
+MFi-certified accessories and generic thermal printers are not certified, so supporting it
+would mean the API stops being the same on both platforms. Network plus BLE covers modern
+hardware. The `ConnectionFactory` seam is public if you want to add a transport yourself.
+
+**What 1.0 means here.** A public API that stops changing between releases, a meaningfully
+wider set of confirmed printers, and a deprecation policy. Until then, expect the API to move
+between alpha versions, and pin an exact version.
+
 ## Support
 
 Questions and bug reports → [Issues](https://github.com/kotimadduluri/printbeam-sdk/issues).
